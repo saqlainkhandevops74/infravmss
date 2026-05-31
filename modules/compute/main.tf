@@ -46,8 +46,9 @@ resource "azurerm_monitor_diagnostic_setting" "vmss_diag" {
   log_analytics_workspace_id = var.log_analytics_id
 
   # VMSS doesn't support enabled_log blocks, only metrics
-  enabled_metric {
+  metric {
     category = "AllMetrics"
+    enabled  = true
   }
 }
 

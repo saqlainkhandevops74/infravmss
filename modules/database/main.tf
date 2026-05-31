@@ -47,21 +47,24 @@ resource "azurerm_monitor_diagnostic_setting" "sql_diag" {
   log_analytics_workspace_id = var.log_analytics_id
 
   # Auditing aur Errors ke liye logs
-  enabled_log {
-    category = "SQLSecurityAuditEvents"
-  }
+  # log {
+  #   category = "SQLSecurityAuditEvents"
+  #   enabled  = true
+  # }
 
-  enabled_log {
-    category = "Errors"
-  }
+  # log {
+  #   category = "Errors"
+  #   enabled  = true
+  # }
 
-  enabled_log {
-    category = "Blocks"
-  }
+  # log {
+  #   category = "Blocks"
+  #   enabled  = true
+  # }
 
   # Performance Metrics (DTU/CPU usage)
-  enabled_metric {
+  metric {
     category = "AllMetrics"
-    
+    enabled  = true
   }
-}
+} 

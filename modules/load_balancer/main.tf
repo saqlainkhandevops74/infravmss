@@ -79,17 +79,19 @@ resource "azurerm_monitor_diagnostic_setting" "appgw_diag" {
   log_analytics_workspace_id = var.log_analytics_id
 
   # Security Logs (WAF aur Access)
-  enabled_log {
-    category = "ApplicationGatewayAccessLog"
-  }
+  # log {
+  #   category = "ApplicationGatewayAccessLog"
+  #   enabled  = true
+  # }
 
-  enabled_log {
-    category = "ApplicationGatewayFirewallLog"
-  }
+  # log {
+  #   category = "ApplicationGatewayFirewallLog"
+  #   enabled  = true
+  # }
 
   # Performance Metrics
-  enabled_metric {
+  metric {
     category = "AllMetrics"
-    
+    enabled  = true
   }
 }
